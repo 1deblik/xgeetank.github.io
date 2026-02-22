@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geetank | Portfolio</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="selection:bg-white/20 selection:text-white flex flex-col min-h-screen">
+    <div class="bg-noise"></div>
+    
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass-panel px-6 py-3 rounded-full flex items-center gap-8 hw-accel animate-fade-in-down">
+      <a href="#" class="font-cursive font-bold text-3xl tracking-tight text-white hover-trigger">Geetank</a>
+      <div class="flex items-center gap-6 text-sm font-medium text-white/60">
+        <a href="#about" class="hover:text-white transition-colors hover-trigger">About</a>
+        <a href="#projects" class="hover:text-white transition-colors hover-trigger">Projects</a>
+        <a href="https://github.com/1deblik" target="_blank" rel="noreferrer" class="hover:text-white transition-colors flex items-center gap-2 hover-trigger">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          GitHub
+        </a>
+      </div>
+    </nav>
+
+    <main class="relative z-10 flex-1">
+      <!-- Hero Section -->
+      <section class="h-screen flex flex-col items-center justify-center px-6 relative">
+        <div class="text-center hw-accel animate-fade-in-up">
+          <h1 class="text-[20vw] md:text-[15vw] leading-none font-cursive font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/20 select-none">
+            Geetank
+          </h1>
+          <p class="text-xl md:text-2xl text-white/50 font-mono mt-4">
+            Vibe Coder. Skidder. Creator.
+          </p>
+        </div>
+
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 animate-bounce">
+          <span class="text-xs font-mono uppercase tracking-widest">Scroll</span>
+          <i data-lucide="chevron-down" class="w-4 h-4"></i>
+        </div>
+      </section>
+
+      <!-- Content Section -->
+      <div class="max-w-6xl mx-auto px-6 pb-12" id="about">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- About Bento -->
+          <div class="glass-panel rounded-3xl p-8 md:p-10 md:col-span-2 flex flex-col justify-center relative overflow-hidden group hover-trigger hw-accel">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors duration-700"></div>
+            <h2 class="font-cursive text-6xl font-bold mb-6 text-white">About Me</h2>
+            <div class="space-y-4 text-white/70 leading-relaxed text-lg font-sans">
+              <p>
+                Hello everybody, my name is <span class="text-white font-semibold">Geetank</span>. I'm a fellow vibe coder/skidder who does most of his stuff in <span class="text-white font-mono text-sm bg-white/10 px-2 py-1 rounded">JS</span> and <span class="text-white font-mono text-sm bg-white/10 px-2 py-1 rounded">Lua</span>.
+              </p>
+              <p>
+                Most of the things I build are either for me or useful to a handful of people. My projects might not be massive enterprise systems, but they are built with intention, creativity, and a focus on utility. I have a few of my projects on my GitHub, showcasing my journey through code.
+              </p>
+              <p>
+                I constantly experiment with <span class="text-white font-mono text-sm bg-white/10 px-2 py-1 rounded">Lua</span>, <span class="text-white font-mono text-sm bg-white/10 px-2 py-1 rounded">Lua(U)</span>, <span class="text-white font-mono text-sm bg-white/10 px-2 py-1 rounded">JS</span>, <span class="text-white font-mono text-sm bg-white/10 px-2 py-1 rounded">HTML</span>, <span class="text-white font-mono text-sm bg-white/10 px-2 py-1 rounded">CSS</span>, and <span class="text-white font-mono text-sm bg-white/10 px-2 py-1 rounded">Python</span>. I often dive deep into the intersections of AI and modern web technologies, exploring the digital void, reverse-engineering cool mechanics, and pushing the boundaries of what I can create.
+              </p>
+              <p>
+                My philosophy is simple: build things that are fun, learn by breaking stuff, and share the cool bits with the community. When I'm not coding, you can probably find me hanging out in Discord, exploring new AI models, or tweaking my setup for the 100th time.
+              </p>
+              <p>
+                Welcome to my corner of the internet.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-6">
+            <!-- Discord Card -->
+            <div id="discord-card" class="glass-panel rounded-3xl p-6 flex flex-col justify-between h-full min-h-[220px] relative overflow-hidden group hover-trigger hw-accel">
+              <div class="animate-pulse flex flex-col h-full justify-between">
+                <div class="w-16 h-16 bg-white/10 rounded-full mb-4"></div>
+                <div class="h-5 bg-white/10 rounded w-1/2 mb-2"></div>
+                <div class="h-4 bg-white/10 rounded w-1/3"></div>
+              </div>
+            </div>
+
+            <!-- Skills Bento -->
+            <div class="glass-panel rounded-3xl p-8 flex flex-col h-full hover-trigger hw-accel">
+              <h3 class="font-montserrat font-light text-4xl mb-6 text-white">Arsenal</h3>
+              <div class="flex flex-wrap gap-3 mt-auto">
+                <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors">
+                  <i data-lucide="code-2" class="w-4 h-4"></i> JavaScript
+                </div>
+                <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors">
+                  <i data-lucide="terminal" class="w-4 h-4"></i> Lua / Lua(U)
+                </div>
+                <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors">
+                  <i data-lucide="terminal" class="w-4 h-4"></i> Python
+                </div>
+                <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors">
+                  <i data-lucide="globe" class="w-4 h-4"></i> HTML/CSS
+                </div>
+                <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition-colors">
+                  <i data-lucide="cpu" class="w-4 h-4"></i> AI Integration
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24">
+          <h2 class="font-montserrat font-light text-5xl mb-12 flex items-center gap-4 text-white">
+            <i data-lucide="terminal" class="w-10 h-10 text-white/40"></i>
+            Featured Projects
+          </h2>
+          
+          <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <p class="text-white/40 font-mono">Loading projects from the void...</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-8 text-center border-t border-white/10 mt-auto glass-panel rounded-t-3xl mx-6 mb-0">
+      <p class="text-white/40 font-mono text-sm">
+        &copy; 2026 Geetank. Crafted in the digital void. All rights reserved.
+      </p>
+    </footer>
+    
+    <script src="/script.js"></script>
+  </body>
+</html>
+
