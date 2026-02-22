@@ -1,6 +1,34 @@
 // Initialize Lucide Icons
 lucide.createIcons();
 
+// --- Loader ---
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  setTimeout(() => {
+    loader.classList.add('hidden');
+  }, 1200);
+});
+
+// --- Scroll Reveal ---
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+  observer.observe(el);
+});
+
 // --- Anti-Lag Custom Cursor ---
 const cursorDot = document.getElementById('cursor-dot');
 const cursorOutline = document.getElementById('cursor-outline');
@@ -118,8 +146,8 @@ async function fetchGitHub() {
     if (Array.isArray(data)) {
       // Filter out forks and only include repos that have a language (code)
       const repos = data.filter(r => !r.fork && r.language !== null).slice(0, 4);
-      projectsGrid.innerHTML = repos.map(repo => `
-        <a href="${repo.html_url}" target="_blank" rel="noreferrer" class="glass-panel rounded-3xl group hover-trigger block hw-accel overflow-hidden flex flex-col">
+      projectsGrid.innerHTML = repos.map((repo, index) => `
+        <a href="${repo.html_url}" target="_blank" rel="noreferrer" class="glass-panel rounded-3xl group hover-trigger block hw-accel overflow-hidden flex flex-col reveal-on-scroll" style="transition-delay: ${index * 0.1}s">
           <div class="h-48 w-full overflow-hidden border-b border-white/10 relative">
             <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
             <img src="https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}" alt="${repo.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -148,6 +176,11 @@ async function fetchGitHub() {
         </a>
       `).join('');
       lucide.createIcons();
+      
+      // Observe new project cards
+      document.querySelectorAll('#projects-grid .reveal-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
     } else {
       projectsGrid.innerHTML = `<p class="text-red-400/80 font-mono">Failed to load projects.</p>`;
     }

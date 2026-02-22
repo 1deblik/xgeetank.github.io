@@ -1,12 +1,4 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@300&display=swap');
-
-@theme {
-  --font-sans: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-  --font-cursive: "Dancing Script", cursive;
-  --font-montserrat: "Montserrat", sans-serif;
-}
 
 * {
   cursor: none !important;
@@ -119,4 +111,40 @@ body {
 }
 .animate-fade-in-down {
   animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Loader */
+#loader {
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+}
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.g-loader {
+  animation: g-glow 1.5s ease-in-out infinite alternate;
+}
+@keyframes g-glow {
+  0% { 
+    text-shadow: 0 0 10px rgba(255,255,255,0.1), 0 0 20px rgba(255,255,255,0.1); 
+    transform: scale(0.95); 
+    opacity: 0.7;
+  }
+  100% { 
+    text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4), 0 0 60px rgba(255,255,255,0.2); 
+    transform: scale(1.1); 
+    opacity: 1;
+  }
+}
+
+/* Scroll Reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
